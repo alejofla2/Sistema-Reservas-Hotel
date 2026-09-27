@@ -5,9 +5,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-// ======================================================
-// COLORES PARA LA CONSOLA
-// ======================================================
+
 
 const RESET = "\x1b[0m";
 const BLANCO = "\x1b[97m";
@@ -24,9 +22,7 @@ const FONDO_ROJO = "\x1b[48;5;52m";
 const FONDO_AMARILLO = "\x1b[48;5;58m";
 
 
-// ======================================================
-// CLASE HUESPED
-// ======================================================
+
 
 class Huesped {
 
@@ -90,9 +86,7 @@ class Huesped {
 }
 
 
-// ======================================================
-// CLASE HABITACION
-// ======================================================
+
 
 class Habitacion {
 
@@ -166,9 +160,6 @@ class Habitacion {
 }
 
 
-// ======================================================
-// CLASE ALIMENTACION
-// ======================================================
 
 class Alimentacion {
 
@@ -202,9 +193,6 @@ class Alimentacion {
 }
 
 
-// ======================================================
-// CLASE RESERVA
-// ======================================================
 
 class Reserva {
 
@@ -341,9 +329,7 @@ class Reserva {
 }
 
 
-// ======================================================
-// CLASE HOTEL
-// ======================================================
+
 
 class Hotel {
 
@@ -438,9 +424,7 @@ class Hotel {
 }
 
 
-// ======================================================
-// FUNCIONES DE INTERFAZ
-// ======================================================
+
 
 function preguntar(mensaje) {
 
@@ -497,9 +481,6 @@ function mensajeCorrecto(texto) {
 }
 
 
-// ======================================================
-// VALIDACIONES
-// ======================================================
 
 async function pedirTexto(mensaje) {
 
@@ -654,10 +635,6 @@ async function pedirFechaNacimiento() {
 }
 
 
-// ======================================================
-// SELECCIONAR HABITACION
-// ======================================================
-
 async function seleccionarHabitacion(hotel) {
 
     while (true) {
@@ -719,9 +696,6 @@ async function seleccionarHabitacion(hotel) {
 }
 
 
-// ======================================================
-// SELECCIONAR ALIMENTACION
-// ======================================================
 
 async function seleccionarAlimentacion() {
 
@@ -790,9 +764,6 @@ async function seleccionarAlimentacion() {
 }
 
 
-// ======================================================
-// FECHAS DE RESERVA
-// ======================================================
 
 async function pedirFechas() {
 
@@ -848,10 +819,6 @@ async function pedirFechas() {
 }
 
 
-// ======================================================
-// REGISTRAR RESERVA
-// ======================================================
-
 async function registrarReserva(hotel) {
 
     limpiar();
@@ -891,7 +858,7 @@ async function registrarReserva(hotel) {
         await pedirTexto("Correo electrónico: ");
 
 
-    // Crear objeto Huesped
+   
 
     let huesped = new Huesped(
         tipoDocumento,
@@ -905,7 +872,7 @@ async function registrarReserva(hotel) {
     );
 
 
-    // Seleccionar habitación
+
 
     let habitacion =
         await seleccionarHabitacion(hotel);
@@ -916,7 +883,7 @@ async function registrarReserva(hotel) {
     }
 
 
-    // Cantidad de personas
+
 
     let personas;
 
@@ -951,19 +918,17 @@ async function registrarReserva(hotel) {
     }
 
 
-    // Fechas
+
 
     let fechas =
         await pedirFechas();
 
 
-    // Alimentación
-
     let alimentacion =
         await seleccionarAlimentacion();
 
 
-    // Crear objeto Reserva
+
 
     let reserva = new Reserva(
         numeroReserva,
@@ -977,17 +942,17 @@ async function registrarReserva(hotel) {
     );
 
 
-    // Cambiar estado de habitación
+
 
     habitacion.reservar();
 
 
-    // Guardar reserva
+
 
     hotel.agregarReserva(reserva);
 
 
-    // Mostrar información
+
 
     limpiar();
 
@@ -1003,9 +968,6 @@ async function registrarReserva(hotel) {
 }
 
 
-// ======================================================
-// MENÚ PRINCIPAL
-// ======================================================
 
 async function menu(hotel) {
 
@@ -1119,18 +1081,15 @@ async function menu(hotel) {
 }
 
 
-// ======================================================
-// CREACIÓN DE OBJETOS
-// ======================================================
 
-// Instancia de la clase Hotel
+
+
 
 const hotel = new Hotel(
     "Hotel Paraíso Real"
 );
 
 
-// Instancias de la clase Habitacion
 
 hotel.agregarHabitacion(
     new Habitacion(
@@ -1169,9 +1128,6 @@ hotel.agregarHabitacion(
 );
 
 
-// ======================================================
-// INICIAR PROGRAMA
-// ======================================================
 
 menu(hotel);
-
+// DE: DANIEL ALEJANDRO SARMIENTO VILLAMARIN 
